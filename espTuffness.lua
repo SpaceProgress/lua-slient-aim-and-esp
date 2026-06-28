@@ -56,15 +56,15 @@ local data = ESP[player]
 if not data then return end
 
 ```
-if data.Box then data.Box:Remove() end
-if data.BoxOutline then data.BoxOutline:Remove() end
-if data.Health then data.Health:Remove() end
-if data.HealthOutline then data.HealthOutline:Remove() end
-if data.Name then data.Name:Remove() end
+if data.Box then pcall(function() data.Box:Remove() end) end
+if data.BoxOutline then pcall(function() data.BoxOutline:Remove() end) end
+if data.Health then pcall(function() data.Health:Remove() end) end
+if data.HealthOutline then pcall(function() data.HealthOutline:Remove() end) end
+if data.Name then pcall(function() data.Name:Remove() end) end
 
 if data.Skeleton then
     for _, line in pairs(data.Skeleton) do
-        line:Remove()
+        pcall(function() line:Remove() end)
     end
 end
 
@@ -110,7 +110,7 @@ end)
 
 end
 
-for _, player in Players:GetPlayers() do AddESP(player) end
+for _, player in ipairs(Players:GetPlayers()) do AddESP(player) end
 Players.PlayerAdded:Connect(AddESP)
 Players.PlayerRemoving:Connect(RemoveESP)
 
