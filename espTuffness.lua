@@ -12,6 +12,7 @@ TeamCheck = true,
 VisibleCheck = false,
 MaxDistance = 700,
 DrawFOV = true,
+ToggleKey = Enum.KeyCode.H
 }
 
 local FovHidden = false
@@ -45,7 +46,7 @@ FOVCircle.Filled = false
 
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
 if gameProcessed then return end
-if input.KeyCode == Enum.KeyCode.H then
+if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Config.ToggleKey then
 FovHidden = not FovHidden
 end
 end)
