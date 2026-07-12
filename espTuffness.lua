@@ -8,7 +8,7 @@ local Camera = Workspace.CurrentCamera
 
 local Config = {
     TargetPart = "Head",
-    MaxFOV = 300,
+    MaxFOV = 50,
     TeamCheck = true,
     VisibleCheck = false,
     MaxDistance = 700,
